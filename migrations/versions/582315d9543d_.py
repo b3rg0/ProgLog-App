@@ -1,6 +1,6 @@
 """empty message
 
-Revision ID: 582315d9543d
+Revision ID: 582315d9543d_
 Revises: 
 Create Date: 2018-11-13 21:32:26.287985
 
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '582315d9543d'
+revision = '582315d9543d_'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -68,7 +68,14 @@ def upgrade():
     # Seeding database
     op.bulk_insert(subjects, [
         {'name': 'Variables', 'minimum_approved': 10, 'prerequisite': 0},
-        {'name': 'Estructuras de Control', 'minimum_approved': 15, 'prerequisite': 1}
+        {'name': 'Estructuras de Control', 'minimum_approved': 20, 'prerequisite': 1},
+        {'name': 'Bucles', 'minimum_approved': 35, 'prerequisite': 2},
+        {'name': 'Arreglos', 'minimum_approved': 50, 'prerequisite': 3},
+        {'name': 'Arreglos Bidimensionales', 'minimum_approved': 60, 'prerequisite': 4},
+        {'name': 'Estructuras', 'minimum_approved': 75, 'prerequisite': 5},
+        {'name': 'Apuntadores', 'minimum_approved': 90, 'prerequisite': 6},
+        {'name': 'Clases', 'minimum_approved': 115, 'prerequisite': 7},
+        {'name': 'Metodos', 'minimum_approved': 130, 'prerequisite': 8},
     ])
 
     op.bulk_insert(types, [
@@ -77,11 +84,79 @@ def upgrade():
     ])
 
     op.bulk_insert(nodes, [
-        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'None', 'parent_node': 0},
-        {'subject_id': 1, 'type_id': 1, 'score': -5, 'answer_parent': 'c = 15', 'parent_node': 1},
-        {'subject_id': 1, 'type_id': 2, 'score': 10, 'answer_parent': 'c = \'15\'', 'parent_node': 1},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'None', 'parent_node': 0},### cpp1
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 15', 'parent_node': 1},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'15\'', 'parent_node': 1},
         {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'Error', 'parent_node': 1},
+
+        ### cpp2
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 15', 'parent_node': 2},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'50\'', 'parent_node': 2},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 50', 'parent_node': 2},
+
+        ### cpp3
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 12', 'parent_node': 3},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'12\'', 'parent_node': 3},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 7', 'parent_node': 3},
+
+        ### cpp4
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 10', 'parent_node': 4},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'Error', 'parent_node': 4},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'a\'', 'parent_node': 4},
+
+        ### cpp5
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'True\'', 'parent_node': 5},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 5', 'parent_node': 5},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = -5', 'parent_node': 5},
+
+        ### cpp6
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = \'Error\'', 'parent_node': 6},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 0', 'parent_node': 6},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'0\'', 'parent_node': 6},
+
+        ### cpp7
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'Error\'', 'parent_node': 7},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 150', 'parent_node': 7},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 60', 'parent_node': 7},
+
+        ### cpp8
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 10', 'parent_node': 8},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 100', 'parent_node': 8},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = \'10\'', 'parent_node': 8},
+
+        ### los nodos 9, 10, 12 y 13 ya dan -10 por ende game over, para no perder el hilo le puse el num 11 al que sigue
+
+        ### cpp11
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 55', 'parent_node': 11},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 5', 'parent_node': 11},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 100', 'parent_node': 11},
+
+        ### cpp15
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 4', 'parent_node': 15},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = -5', 'parent_node': 15},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 1', 'parent_node': 15},
+
+        ### cpp17
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 5', 'parent_node': 17},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 2', 'parent_node': 17},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 15', 'parent_node': 17},
+
+        ### cpp24
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 20', 'parent_node': 24},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 1', 'parent_node': 24},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 30', 'parent_node': 24},
+
+        ### cpp27
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 200', 'parent_node': 27},
+        {'subject_id': 1, 'type_id': 1, 'score': 10, 'answer_parent': 'c = 12', 'parent_node': 27},
+        {'subject_id': 1, 'type_id': 2, 'score': -5, 'answer_parent': 'c = 3', 'parent_node': 27},
+
+        ## la repesca es para que saquen 15 sino se jodieron
+
     ])
+
+
+    "op.bulk_insert()"
     # ### end Alembic commands ###
 
 
