@@ -70,9 +70,7 @@ def upgrade():
         {'name': 'Variables', 'minimum_approved': 15, 'prerequisite': 0},
         {'name': 'Estructuras de Control', 'minimum_approved': 15, 'prerequisite': 1},
         {'name': 'Bucles', 'minimum_approved': 15, 'prerequisite': 2},
-        {'name': 'Arreglos', 'minimum_approved': 15, 'prerequisite': 3},                                
-        {'name': 'Metodos', 'minimum_approved': 15, 'prerequisite': 4},
-        {'name': 'Apuntadores', 'minimum_approved': 15, 'prerequisite': 5},
+        {'name': 'Arreglos', 'minimum_approved': 15, 'prerequisite': 3},
     ])
 
     op.bulk_insert(types, [
@@ -267,6 +265,93 @@ def upgrade():
         {'id': 26, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'b = 20', 'parent_node': 11},
         {'id': 27, 'subject_id': 3, 'type_id': 1, 'score': 10, 'answer_parent': 'se genera un bucle infinito', 'parent_node': 11},
         {'id': 28, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'b = 10', 'parent_node': 11},
+
+        ### cpp15
+        {'id': 29, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'b = 1', 'parent_node': 15},
+        {'id': 30, 'subject_id': 3, 'type_id': 1, 'score': 10, 'answer_parent': 'b = 0', 'parent_node': 15},
+        {'id': 31, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'se genera un bucle infinito', 'parent_node': 15},
+
+        ### cpp17
+        {'id': 32, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'se genera un bucle infinito', 'parent_node': 17},
+        {'id': 33, 'subject_id': 3, 'type_id': 1, 'score': 10, 'answer_parent': 'a = 1', 'parent_node': 17},
+        {'id': 34, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'a = 2', 'parent_node': 17},
+
+        ### cpp24
+        {'id': 35, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'b = 14', 'parent_node': 24},
+        {'id': 36, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'b = 12', 'parent_node': 24},
+        {'id': 37, 'subject_id': 3, 'type_id': 1, 'score': 10, 'answer_parent': 'b = 47', 'parent_node': 24},
+
+        ### cpp27
+        {'id': 38, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'a = 30', 'parent_node': 27},
+        {'id': 39, 'subject_id': 3, 'type_id': 1, 'score': 10, 'answer_parent': 'a = 29', 'parent_node': 27},
+        {'id': 40, 'subject_id': 3, 'type_id': 2, 'score': -5, 'answer_parent': 'a = 31', 'parent_node': 27},
+
+                                            ###Arreglos
+        ### cpp1
+        {'id': 1, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'None', 'parent_node': 0},
+        {'id': 2, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'v = 7', 'parent_node': 1},
+        {'id': 3, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'v = 2', 'parent_node': 1},
+        {'id': 4, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': '\'Error\'', 'parent_node': 1},
+
+        ### cpp2
+        {'id': 5, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': '\'Error\'', 'parent_node': 2},
+        {'id': 6, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a[v] = 2', 'parent_node': 2},
+        {'id': 7, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a[v] = 3', 'parent_node': 2},
+
+        ### cpp3
+        {'id': 8, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent':  'a = [ 7 6 5 4 3 ]', 'parent_node': 3},
+        {'id': 9, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent':  'a = [ 7 3 5 6 1 ]', 'parent_node': 3},
+        {'id': 10, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ 6 5 4 3 2 ]', 'parent_node': 3},
+
+        ### cpp4
+        {'id': 11, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a = [ 7 8 9 10 11 ]', 'parent_node': 4},
+        {'id': 12, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ 8 9 10 11 12 ]', 'parent_node': 4},
+        {'id': 13, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ 6 7 8 9 10]', 'parent_node': 4},
+
+        ### cpp5
+        {'id': 14, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ -6 -5 -4 -3 -2 ]', 'parent_node': 5},
+        {'id': 15, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a = [ -7 -6 -5 -4 -3 ]', 'parent_node': 5},
+        {'id': 16, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ -8 -7 -6 -5 -4 ]', 'parent_node': 5},        
+
+        ### cpp6
+        {'id': 17, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a = [ 0 3 6 9 12 ]', 'parent_node': 6},
+        {'id': 18, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ 3 6 9 12 15]', 'parent_node': 6},
+        {'id': 19, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a = [ 3 4 5 6 7 ] ', 'parent_node': 6},
+
+        ### cpp7
+        {'id': 20, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ 6 10 14 18 22 ]', 'parent_node': 7},
+        {'id': 21, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ 7 11 15 19 23 ]', 'parent_node': 7},
+        {'id': 22, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a + b = [ 3 7 11 15 19 ]', 'parent_node': 7},
+
+        ### cpp8
+        {'id': 23, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ 1 5 9 13 17] ', 'parent_node': 8},
+        {'id': 24, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a + b = [ -3 1 5 9 13 ] ', 'parent_node': 8},
+        {'id': 25, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [  0 4 8 12 16 ] ', 'parent_node': 8},
+
+        ### cpp11
+        {'id': 26, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a - b = [ 5 5 5 5 5 ] ', 'parent_node': 11},
+        {'id': 27, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a - b = [ 6 6 6 6 6 ] ', 'parent_node': 11},
+        {'id': 28, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a - b = [ 6 6 5 6 6 ] ', 'parent_node': 11},
+
+        ### cpp15
+        {'id': 29, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a * b = [ -8 -5 0 7 9 ]', 'parent_node': 15},
+        {'id': 30, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a * b = [ -9 -8 -5 0 7 ]', 'parent_node': 15},
+        {'id': 31, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a * b = [ -9 -7 -5 0 8 ]', 'parent_node': 15},
+
+        ### cpp17
+        {'id': 32, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a * b = [ 8 5 2 0 -7 ]', 'parent_node': 17},
+        {'id': 33, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a * b = [ 9 8 5 0 -7 ]', 'parent_node': 17},
+        {'id': 34, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a * b = [ 8 7 5 0 -9 ]', 'parent_node': 17},
+
+        ### cpp24
+        {'id': 35, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ 1 3 5 7 9 ]', 'parent_node': 24},
+        {'id': 36, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ 5 7 9 11 13 ]', 'parent_node': 24},
+        {'id': 37, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a + b = [ 3 5 7 9 11 ]', 'parent_node': 24},
+
+        ### cpp27
+        {'id': 38, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ -7 -3 1 5 9 ] ', 'parent_node': 27},
+        {'id': 39, 'subject_id': 4, 'type_id': 1, 'score': 10, 'answer_parent': 'a + b = [ -3 1 5 9 13 ]', 'parent_node': 27},
+        {'id': 40, 'subject_id': 4, 'type_id': 2, 'score': -5, 'answer_parent': 'a + b = [ 1 5 9 13 17] ', 'parent_node': 27},
 
 
     ])
